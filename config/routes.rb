@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   
   namespace :admin do
     root to: "homes#top"
@@ -29,5 +30,6 @@ Rails.application.routes.draw do
     passwords: "public/passwords"
     
   }
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-end
+
+
+  devise_for :admins, :customers
