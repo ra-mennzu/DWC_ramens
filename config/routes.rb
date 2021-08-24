@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   devise_scope :customers do
     get '/customers/cancel', to: 'devise/registrations#cancel'
     get '/customers/sign_up', to: 'devise/registrations#new'
-    patch '/customers', to: 'devise/registrations#update'
     put '/customers', to: 'devise/registrations#update'
     delete '/customers', to: 'devise/registrations#destroy'
     post '/customers', to: 'devise/registrations#create'
