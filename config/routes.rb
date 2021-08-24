@@ -34,8 +34,8 @@ Rails.application.routes.draw do
   devise_for :customers, controllers: {
     sessions: "public/sessions",
     passwords: "public/passwords"
-
   }
 
 
 end
+
