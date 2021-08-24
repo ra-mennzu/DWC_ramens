@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  # devise_for :customers, skip: :all
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 
   
   namespace :admin do
@@ -20,7 +23,8 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :show]
     resources :cart_items, only: [:index, :create, :update, :destroy, :destroy_all]
     resources :addresses, only: [:index, :create, :destroy, :edit, :update]
-
+    get 'customers/my_page' => 'customers#show'
+    
   end
 
   devise_for :admin, controllers: {
@@ -35,3 +39,4 @@ Rails.application.routes.draw do
 
 
   devise_for :admins, :customers
+
