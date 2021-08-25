@@ -19,12 +19,14 @@ Rails.application.routes.draw do
     root to: "homes#top"
     get "/about" => "homes#about", as: "about"
     resource :customers, only: [:show, :edit, :update, :unsubscribe, :withdraw]
-    resources :orders, only: [:new, :confirm, :create, :complete, :index, :show]
+    resources :orders, only: [:new, :create, :index, :show]
     resources :items, only: [:index, :show]
     resources :cart_items, only: [:index, :create, :update, :destroy, :destroy_all]
     resources :addresses, only: [:index, :create, :destroy, :edit, :update]
     get 'customers/my_page' => 'customers#show'
-    
+    post '/orders/confirm'=> 'orders#confirm'
+    get '/orders/complete'=> 'orders#complete'
+
   end
 
   devise_for :admin, controllers: {
