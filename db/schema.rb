@@ -67,13 +67,13 @@ ActiveRecord::Schema.define(version: 2021_08_22_114237) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "customer_id"
-    t.integer "shipping_cost"
-    t.integer "total_payment"
-    t.string "name"
-    t.string "postal_code"
-    t.string "address"
-    t.integer "payment_method"
-    t.integer "status"
+    t.string "name", default: "", null: false
+    t.string "postal_code", default: "", null: false
+    t.string "address", default: "", null: false
+    t.integer "payment_method", default: 0, null: false
+    t.integer "status", default: 0, null: false
+    t.integer "shipping_cost", null: false
+    t.integer "total_payment", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
