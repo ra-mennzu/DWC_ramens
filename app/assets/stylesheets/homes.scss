@@ -1,3 +1,34 @@
-// Place all the styles related to the homes controller here.
+// Place all the styles related to the public/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.example {
+  position: relative;
+  }
+
+.example p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  color: white;/
+  background: skyblue;/
+
+  }
+
+.example img {
+  width: 100%;
+  }
+
+.about_h1 {
+  text-align:  center;        
+  size: 86px;
+  }
+
+.about_introduction {
+  text-align:  center;        
+  }
