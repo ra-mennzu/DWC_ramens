@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-    root to: "homes#top"
+    root to: 'homes#top'
     resources :customers,only: [:index, :show, :edit, :update]
     resources :orders, only: [:index, :show, :update] do
       resources :order_items, only: [:update]
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     resources :cart_items, only: [:index, :create, :update, :destroy, :destroy_all]
     resources :addresses, only: [:index, :create, :destroy, :edit, :update]
     get 'customers/my_page' => 'customers#show'
-    
+
   end
 
   devise_for :admin, controllers: {
