@@ -1,6 +1,6 @@
 注文情報確認
 
-<%= form_with model: order, url: orders_path, local: true do |form| %>
+<%= form_with model: @order, url: orders_path, local: true do |form| %>
 
 
 
@@ -8,21 +8,33 @@
 	<% @cart_items.each do |cart_item| %>
 
 		商品名　　　<%= cart_item.item.name %>
-		単価（税込）  <%= cart_item.item.price %>
+		単価（税込）  <%= (cart_item.item.price*1.10).ceil.to_s(:delimited) %>
 		数量  <%= cart_item.amount %>
-		小計  <%= cart_item.amount*cart_item.item.price %>
+		小計  <%= (cart_item.amount*cart_item.item.price)*1.10).ceil.to_s(:delimited) %>
 	<% end %>
 
-	支払方法  <%= 選択されたもの.payment_method %>
 
-	お届け先 <%= 選択されたもの.info %>
+
+	支払方法  	<%= form.hidden_field :payment_method, :value =>@oredr.payment_method %>.  <%= 選択されたもの.payment_method %>
+
+	お届け先 	
+	<!--登録住所選択時-->
+	<%= form.hidden_field :name, :value =>@oredr.name %>
+	
+	<!--配送先の住所を選択時-->
+	<%= form.hidden_field :name, :value =>@oredr.name %>
+	
+	<!--新規登録時-->
+	<%= form.hidden_field :name, :value =>@oredr.name %>
+	<%= form.hidden_field :postal_code, :value =>@oredr.postal_code %>
+	<%= form.hidden_field :address, :value =>@oredr.address %>   <%= 選択されたもの.info %>
 
 
 
 
 	送料　800  <%= @shipping_cost %>
-	商品合計   <%= current_customer.cart_items.sum(:price) %>
-	請求金額   <%= @total_payment %>
+	商品合計   <%= (current_customer.cart_items.sum(:price) *1.10).ceil.to_s(:delimited) %>
+	請求金額   <%= @order.total_payment %>
 
 
 
