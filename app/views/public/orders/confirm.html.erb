@@ -1,1 +1,31 @@
-confirm
+注文情報確認
+
+<%= form_with model: order, url: orders_path, local: true do |form| %>
+
+
+
+
+	<% @cart_items.each do |cart_item| %>
+
+		商品名　　　<%= cart_item.item.name %>
+		単価（税込）  <%= cart_item.item.price %>
+		数量  <%= cart_item.amount %>
+		小計  <%= cart_item.amount*cart_item.item.price %>
+	<% end %>
+
+	支払方法  <%= 選択されたもの.payment_method %>
+
+	お届け先 <%= 選択されたもの.info %>
+
+
+
+
+	送料　800  <%= @shipping_cost %>
+	商品合計   <%= current_customer.cart_items.sum(:price) %>
+	請求金額   <%= @total_payment %>
+
+
+
+
+  <%= from.submit '注文を確定する', style: "text-align:center;", class: "btn btn-sm btn-success" %>
+<% end %>
