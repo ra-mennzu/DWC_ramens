@@ -1,0 +1,34 @@
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <tbody>
+        <div class="card mb-3 border border-0 " style="max-width: 540px;">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <%= attachment_image_tag @item, :image, fallback: "no_image.jpg", size: "100x100" %>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"><%= @item.name %></h5>
+                <p class="card-text"><% @item.introduction %></p>
+                <p><b>&yen; <%= (@item.price*1.10).ceil.to_s(:delimited) %> </b>(税込)</p>
+
+                  <%#= form_with model: @cart_item, method: :post, url: '/cart_items', local:true do |f| %>
+                  <!--<div class="form-group row">-->
+                  <!--   以下の一行がプルダウンを実装するためのコード（追記部分） -->
+                    <div class="col" ><%#= f.select :amount, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"], ["50", "50"]], include_blank: "個数選択"%></div>
+                    <div class="col"><%#= f.submit 'カートに入れる', class:"btn btn-sm btn-success" %></div>
+                  <!--</div>-->
+                  <%# end %>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </tbody>
+    </div>
+  </div>
+</div>

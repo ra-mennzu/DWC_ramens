@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
 
   devise_for :cart_items
   devise_for :catt_items
+=======
+>>>>>>> origin/develop
   # devise_for :customers, skip: :all
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -11,7 +14,7 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     resources :customers,only: [:index, :show, :edit, :update]
     resources :orders, only: [:index, :show, :update] do
-      resources :order_items, only: [:update]
+    resources :order_items, only: [:update]
     end
     resources :items, only: [:new, :create, :index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
@@ -42,6 +45,10 @@ Rails.application.routes.draw do
   }
 
 
+<<<<<<< HEAD
   end
 
+=======
+>>>>>>> origin/develop
 
+end
