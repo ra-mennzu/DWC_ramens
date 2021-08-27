@@ -4,7 +4,9 @@
 
   <div class='col-3'>
     <table class="table border">
+      <thead class="thead-dark">
           <tr><th>ジャンル</th></tr>
+      </thead>
           <% @genres.each do |genre| %>
           <tr ><td><%= genre.name %><td></tr>
           <% end %>
@@ -40,7 +42,7 @@
         <p><%= item.name %></p>
         <% end %>
         ￥<%= item.add_tax_price.to_s(:delimited) %>
-        <!--%= item.add_tax_price.to_s(:delimited) %> 円-->
+
       </div>
     <% end %>
       <div class="col align-self-end">
