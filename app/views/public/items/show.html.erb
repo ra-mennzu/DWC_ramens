@@ -15,13 +15,13 @@
                 <p class="card-text"><% @item.introduction %></p>
                 <p><b>&yen; <%= (@item.price*1.10).ceil.to_s(:delimited) %> </b>(税込)</p>
 
-                  <%= form_with model: @cart_item, local:true do |f| %>
-                  <div class="form-group row">
-                    <!-- 以下の一行がプルダウンを実装するためのコード（追記部分） -->
-                    <div class="col" ><%= f.select :amount, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"], ["50", "50"]], include_blank: "個数選択"%></div>
-                    <div class="col"><%= f.submit 'カートに入れる', class:"btn btn-sm btn-success" %></div>
-                  </div>
-                  <% end %>
+                  <%#= form_with model: @cart_item, method: :post, url: '/cart_items', local:true do |f| %>
+                  <!--<div class="form-group row">-->
+                  <!--   以下の一行がプルダウンを実装するためのコード（追記部分） -->
+                    <div class="col" ><%#= f.select :amount, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"], ["50", "50"]], include_blank: "個数選択"%></div>
+                    <div class="col"><%#= f.submit 'カートに入れる', class:"btn btn-sm btn-success" %></div>
+                  <!--</div>-->
+                  <%# end %>
 
               </div>
             </div>
