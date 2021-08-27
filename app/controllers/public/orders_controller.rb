@@ -2,20 +2,24 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    @addresses = current_customer.address.all
+    # @addresses = current_customer.address.all
+    @addresses = current_customer.address
   end
 
   def confirm
-    @order = current_customer.order.new(order_params)
-    @cart_items = current_customer.cart_items
+    # @order = current_customer.order.new(order_params)
+    @order = Order.new(order_params)
+    @order.custmer_id = current_customer.id
+
+    # @cart_items = current_customer.cart_items
 
 
-    cart_item_amount = 0
-    current_customer.cart_items.all.each do |cart_item|
-    cart_item_amount =  cart_item_amount+(cart_item.item.price*cart_item.amount)
-    end
+    # cart_item_amount = 0
+    # current_customer.cart_items.all.each do |cart_item|
+    # cart_item_amount =  cart_item_amount+(cart_item.item.price*cart_item.amount)
+    # end
 
-    @order.total_payment =((cart_item_amount+  shipping_cost) *1.10).ceil
+    # @order.total_payment =((cart_item_amount+  shipping_cost) *1.10).ceil
 
 
 
@@ -44,6 +48,18 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+    @order = current_customer.order.new(order_params)
+    @oredr.payment_method.save
+
+    @order2 = current_customer.order.new(order2_params)
+    @order.name = @order2.name
+    @order.postal_code = @order2.postal_code
+    @order.address = @order2.address
+    @order.name.save
+    @order.postal_code.save
+    @order.address.save
+
+
     redirect_to orders_path
   end
 
@@ -55,8 +71,6 @@ class Public::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:payment_method)
   end
-
-
 
   def order2_params
     params.require(:order).permit(:postal_code,:address,:name)
