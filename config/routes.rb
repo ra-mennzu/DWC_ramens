@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-
-  devise_for :cart_items
-  devise_for :catt_items
-=======
->>>>>>> origin/develop
   # devise_for :customers, skip: :all
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -36,19 +30,17 @@ Rails.application.routes.draw do
   end
 
   devise_for :admin, controllers: {
-    sessions: "admin/sessions"
+    sessions: 'admin/sessions',
+    passwords: 'admin/passwords',
+    registrations: 'admin/registrations'
   }
 
   devise_for :customers, controllers: {
-    sessions: "public/sessions",
-    passwords: "public/passwords"
+    sessions: 'public/sessions',
+    passwords: 'public/passwords',
+    registrations: 'public/registrations'
   }
 
 
-<<<<<<< HEAD
-  end
-
-=======
->>>>>>> origin/develop
 
 end
