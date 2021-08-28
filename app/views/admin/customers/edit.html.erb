@@ -1,7 +1,7 @@
 <div class="ml-5">
 <h2>登録情報編集</h2>
 <%= render 'layouts/error', errorinstance: @customer %>
-<%= form_with model:[:admins,@customer], local:true do |f| %>
+<%= form_with model:[:admin,@customer], local:true do |f| %>
  <table>
     <thead></thead>
     <tbody>
@@ -50,12 +50,12 @@
       </tr>
 
       <tr>
-        <td><%= f.label :会員ステータス %></td>
+        <td><%#= f.label :会員ステータス %></td>
         <td>
-          <%= f.radio_button "is_valid","有効"%>
-          <%= f.label "is_valid", "有効" %>
-          <%= f.radio_button "is_valid","退会" %>
-          <%= f.label "is_valid", "退会" %>
+          <%#= f.radio_button "is_valid","有効"%>
+          <%#= f.label "is_valid", "有効" %>
+          <%#= f.radio_button "is_valid","退会" %>
+          <%#= f.label "is_valid", "退会" %>
         </td>
       </tr>
 
