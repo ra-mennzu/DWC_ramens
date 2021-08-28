@@ -1,0 +1,66 @@
+<div class="ml-5">
+<h2><%= @customer.first_name %><%= @customer.last_name %>さんの会員詳細</h2>
+
+  <table>
+    <tbody>
+
+      <tr>
+        <td>会員ID　　　　　</td>
+        <td><%= @customer.id %></td>
+      </tr>
+
+      <tr>
+        <td>氏名</td>
+        <td><%= @customer.first_name %> <%= @customer.last_name %></td>
+      </tr>
+
+      <tr>
+        <td>フリガナ</td>
+        <td><%= @customer.first_name_kana %> <%= @customer.last_name_kana %></td>
+      </tr>
+
+      <tr>
+        <td>郵便番号</td>
+        <td><%= @customer.postal_code %></td>
+      </tr>
+
+      <tr>
+        <td>住所</td>
+        <td><%= @customer.address %></td>
+      </tr>
+
+      <tr>
+        <td>電話番号</td>
+        <td><%= @customer.telephone_number %></td>
+      </tr>
+
+      <tr>
+        <td>メールアドレス</td>
+        <td><%= @customer.email %></td>
+      </tr>
+
+      <tr>
+        <!--<td>会員ステータス</td>-->
+        <td><%#= @customer.is_deleted %></td>
+      </tr>
+
+      <tr>
+        <td><%= link_to '編集する',edit_admin_customer_path,class: "btn btn-outline-secondary btn-success text-white" %></td>
+        <!--<td>%= link_to '注文履歴一覧を見る', admins_orders_path(order_sort: 0), customer_id: @customer.id, class: "btn btn-outline-secondary text-dark" %></td>-->
+        <td>
+          <%= form_with model:@order, url: admin_orders_path, customer_id: @customer.id, local:true do |f| %>
+          <%= f.hidden_field :order_sort, :value => 0 %>
+          <%= f.hidden_field :customer_id, :value => @customer.id %>
+          <%= f.submit '注文履歴一覧を見る',class: "btn btn-outline-secondary btn-primary text-white"%>
+          <% end %>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+<!--%= link_to '注文履歴一覧を見る（リンク先未作成）', admins_orders_path(order_sort: 0),class: "btn btn-outline-secondary text-dark" %>-->
+<!--%= form_with model:@order, url: admins_orders_path(order_sort: 0), customer_id: @customer.id, local:true do |f| %>-->
+<!--%= f.hidden_field :customer_id, :value => @customer.id %>-->
+<!--%= f.submit '注文履歴一覧を見る'%>-->
+<!--% end %>-->

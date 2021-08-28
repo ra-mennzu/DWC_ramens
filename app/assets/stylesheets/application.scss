@@ -1,0 +1,44 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+.flash_message{
+  color: white;/*文字を白に*/
+  background: skyblue;/*背景色*/
+}
+
+.error_explanation{
+  color: white;/*文字を白に*/
+  background: red;/*背景色*/
+}
+
+.masthead {
+  padding-top: 10rem;
+  padding-bottom: calc(10rem - 4.5rem);
+  background: linear-gradient(to bottom, rgba(44, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("<%= asset_path('top.jpg') %>");
+  background-position: center;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+.navbar {
+  background-color: rgba(44, 77, 66, 0.8);
+  width: 100%;
+  height: 200px;
+}
